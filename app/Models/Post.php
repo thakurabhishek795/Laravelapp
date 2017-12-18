@@ -9,11 +9,12 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
-
+// always be singular class name reason is that it create table plural 
 class Post extends Model
 {
 
     protected $table = 'posts';
+    //table  name is posts
 
     protected $dates = [
         'created_at',

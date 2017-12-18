@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', function () {
-        return view('layouts.guest');
+        return view('layouts.guest'); //load latouts/guest file for guest option
     });
 });
 
@@ -29,14 +29,14 @@ Route::post('/settings', array(
 
 
 // Posts
-Route::get('/posts/list', 'PostsController@fetch');
+Route::get('/posts/list', 'PostsController@fetch'); //go to postscontoller load fetch
 Route::post('/posts/new', 'PostsController@create');
 Route::post('/posts/delete', 'PostsController@delete');
 Route::post('/posts/like', 'PostsController@like');
 Route::post('/posts/likes', 'PostsController@likes');
 Route::post('/posts/comment', 'PostsController@comment');
 Route::post('/posts/comments/delete', 'PostsController@deleteComment');
-Route::get('/post/{id}', 'PostsController@single');
+Route::get('/post/{id}', 'PostsController@single'); //putting dynamic value to url
 
 // Search
 Route::get('/search', 'HomeController@search');

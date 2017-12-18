@@ -3,8 +3,8 @@
 <div class="panel panel-default new-post-box">
     <div class="panel-body">
         <form id="form-new-post">
-            <input type="hidden" name="group_id" value="{{ $wall['new_post_group_id'] }}">
-            <textarea name="content" placeholder="Share what you think or photos"></textarea>
+            <input type="hidden" name="group_id" value="{{ $wall['new_post_group_id'] }}"> 
+            <textarea name="content" placeholder="Share what you think or photos or youtube videos"></textarea>
             <div class="image-area">
                 <a href="javascript:;" class="image-remove-button" onclick="removePostImage()"><i class="fa fa-times-circle"></i></a>
                 <img src="" />

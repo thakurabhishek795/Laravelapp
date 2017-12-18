@@ -16,10 +16,10 @@ use Response;
 use Session;
 use View;
 
-
-class PostsController extends Controller
+// php artisan make:PagesController command use to create this page
+class PostsController extends Controller 
 {
-
+//we write diffrent public method inside this controlller
     public function __construct()
     {
         $this->middleware('auth');
@@ -85,8 +85,10 @@ class PostsController extends Controller
         }
 
         $comment_count = 2;
-
+// fetch is called router and route return view
+        // we use curly braces to {{// pass any variable  through compact from contoller page inside this}} in widgets/wall_posts.blade.php
         return view('widgets.wall_posts', compact('posts', 'user', 'wall_type', 'list_type', 'optional_id', 'limit', 'div_location', 'comment_count'));
+    // anthor way do this is using return view ('widgets.wall_posts')->with('variable holder'//what we call inside the view,$variable)
     }
 
     public function single(Request $request, $id){
@@ -262,7 +264,7 @@ class PostsController extends Controller
         if ($request->hasFile('image')){
             $validator_data['image'] = 'required|mimes:jpeg,jpg,png,gif|max:2048';
         }else{
-            $validator_data['content'] = 'required';
+            $validator_data['content'] = 'required'; //conent check
         }
 
         $validator = Validator::make($data, $validator_data);

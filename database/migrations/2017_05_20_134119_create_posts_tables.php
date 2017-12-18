@@ -18,7 +18,7 @@ class CreatePostsTables extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('group_id')->nullable();
             $table->boolean('has_image')->default(0);
-            $table->text('content')->nullable();
+            $table->text('content')->nullable(); //we have to  check the content 
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
 
@@ -78,3 +78,5 @@ class CreatePostsTables extends Migration
 
     }
 }
+
+

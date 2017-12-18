@@ -39,9 +39,16 @@
         </span>
         <hr class="fix-hr">
         <div class="post-content post-content-s">
-            {{ $post->content }}
-            @if($post->hasImage())
-                @foreach($post->images()->get() as $image)
+            @if (strpos($post->content , 'youtube') > 0)
+            <iframe  src="{{$post->content }}" >
+            </iframe>
+            @else
+             {{$post->content }}
+            @endif
+            <!--{{ $post->content }}-->
+
+            @if($post->hasImage()) <!-- this variable comming from postscontroller  -->
+                @foreach($post->images()->get() as $image) <!-- this is used for array print that is comming from controller  -->
                     <a data-fancybox="gallery" href="{{ $image->getURL() }}" data-caption="{{ $post->content }}"><img class="img-responsive post-image" src="{{ $image->getURL() }}"></a>
                 @endforeach
             @endif
